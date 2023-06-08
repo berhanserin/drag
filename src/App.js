@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const data = [];
-    for (let i = 0, len = 50; i < len; i++) {
+    for (let i = 0, len = 100; i < len; i++) {
       data.push({
         title: `rows ${i}`,
         order: i
@@ -39,19 +39,25 @@ function App() {
       <button
         onClick={() => {
           let dnew = [];
-          for (let i = 0; i < 49; i += 1) {
-            let j = i;
-            if (Number(index) === i) {
-              dnew.push({ title: `rows ${i}`, order: j });
-              dnew.push({ title: `rows ${i}`, order: (j += 1) });
-            } else if (Number(index) < i) {
-              dnew.push({ title: `rows ${i}`, order: (j += 1) });
-            } else {
-              dnew.push({ title: `rows ${i}`, order: j });
+          if (d.length - Number(index) === 1) {
+            dnew = [...d];
+            dnew[index] = { title: `rows ${index}`, order: index };
+          } else {
+            console.log(1);
+            for (let i = 0; i < 99; i++) {
+              let j = i;
+              if (Number(index) === i) {
+                dnew.push({ title: `rows ${i}`, order: j });
+                dnew.push({ title: `rows ${i}`, order: (j += 1) });
+              } else if (Number(index) < i) {
+                dnew.push({ title: `rows ${i}`, order: (j += 1) });
+              } else {
+                dnew.push({ title: `rows ${i}`, order: j });
+              }
             }
           }
+
           setd(dnew);
-          console.log(dnew.length);
         }}
       >
         Tıkla
