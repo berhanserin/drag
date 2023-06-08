@@ -39,7 +39,7 @@ function App() {
       <button
         onClick={() => {
           let dnew = [];
-          for (let i = 0; i < 50; i += 1) {
+          for (let i = 0; i < 49; i += 1) {
             let j = i;
             if (Number(index) === i) {
               dnew.push({ title: `rows ${i}`, order: j });
@@ -51,6 +51,7 @@ function App() {
             }
           }
           setd(dnew);
+          console.log(dnew.length);
         }}
       >
         Tıkla
